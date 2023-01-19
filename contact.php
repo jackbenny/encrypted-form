@@ -1,6 +1,7 @@
 <?php
 // Where GnuPG should store keys and other stuff.
-// This directory must be writable by the Apache/NGINX process
+// This directory must be writable by the Apache/NGINX process,
+// but remember to keep it outside of the webroot.
 putenv('GNUPGHOME=/home/apache/gnupg');
 
 // The recipient email and a subject line
