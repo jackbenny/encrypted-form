@@ -54,11 +54,10 @@ $gpg->addencryptkey($fingerprint);
 // Encryt the message 
 $encrypted_message = $gpg->encrypt("Name: $name\nE-mail: $email\n\nMessage: $message");
 
-$headers = 'From: "Contact form" <info@example.com>' . "\r\n" .
-    'Reply-To: info@example.com' . "\r\n" .
-    'Content-Type: text/plain; charset=UTF-8' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-
+$headers = "From: \"Contact form\" <$recipient>" . "\r\n" .
+    "Reply-To: $email" . "\r\n" .
+    "Content-Type: text/plain; charset=UTF-8" . "\r\n" .
+    "X-Mailer: PHP/" . phpversion();
 
 // Send the mail (this requires a fully working SMTP-server on the host)
 mail($recipient, $subject, $encrypted_message, $headers);
